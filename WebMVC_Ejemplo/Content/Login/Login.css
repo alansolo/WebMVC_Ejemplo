@@ -1,0 +1,13 @@
+﻿body {
+}
+
+.login_btn {
+    color: black;
+    background-color: #7DA0BD !important;
+    width: 100px;
+}
+
+.login_btn:hover {
+    color: #C8D3DC;
+    background-color: #7DA0BD !important;
+}
