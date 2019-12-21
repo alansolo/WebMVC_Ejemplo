@@ -29,5 +29,24 @@ namespace WebMVC_Ejemplo.Controllers
 
             return Json(login, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        public JsonResult ValidarLogin(string usuario, string password)
+        {
+            string mensaje = "";
+
+            //TENDRIA QUE IR A LA BASE O ALGUN SERVICIO A COMPARAR EL USUARIO
+
+            if (usuario == "alberto" && password == "alberto123")
+            {
+                mensaje = "OK";
+            }
+            else
+            {
+                mensaje = "El usuario y/o password es incorrecto.";
+            }
+
+            return Json(mensaje, JsonRequestBehavior.AllowGet);
+        }
     }
 }

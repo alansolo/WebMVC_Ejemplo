@@ -36,17 +36,18 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-user"></i></span>
                                 </div>
-                                <input id="txtUser" runat="server" type="text" class="form-control" placeholder="username" />
-
+                                <input id="txtUser" type="text" class="form-control" title="Ingresa el usuario" placeholder="username" ng-model="usuario" ng-change="EventoCambioTexto(usuario)" />
+                                @*<p>{{usuario}}</p>*@
+                                <p>{{textoCambio}}</p>
                             </div>
                             <div class="input-group form-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-key"></i></span>
                                 </div>
-                                <input id="txtPassword" runat="server" type="password" class="form-control" placeholder="password" />
+                                <input id="txtPassword" type="password" class="form-control" placeholder="password" ng-model="password" />
                             </div>
                             <div class="form-group">
-                                <button id="btnLogin" runat="server" class="btn float-right login_btn" ng-click="MostrarMensaje(HolaMundo)">
+                                <button id="btnLogin" class="btn float-right login_btn" ng-click="ValidarLogin(usuario, password)">
                                     Login
                                 </button>
                             </div>
@@ -55,8 +56,8 @@
                             <br />
 
                             <div class="form-group">
-                                <div id="divMensajeError" class="alert alert-danger" role="alert">
-                                    <span id="MensajeError">{{HolaMundo}}</span>
+                                <div id="divMensajeError" class="alert alert-danger" role="alert" ng-show="funcionMostrarMensaje()" >
+                                    <span id="MensajeError">{{mensaje}}</span>
                                 </div>
                             </div>
                         </form>
