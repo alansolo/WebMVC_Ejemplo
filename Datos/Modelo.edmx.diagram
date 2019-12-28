@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0e81ebb4f98e43688ffbaad3dc46044b" Name="Diagram1">
+        <EntityTypeShape EntityType="VESCModel.CatClub" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VESCModel.CategoriaClub" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="VESCModel.CatFormato" Width="1.5" PointX="5.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="VESCModel.CatModalidadPago" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VESCModel.CatNivel" Width="1.5" PointX="5.75" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VESCModel.CatPlan" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VESCModel.CatRol" Width="1.5" PointX="1.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VESCModel.CatTipoPago" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VESCModel.Empleado" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="VESCModel.Empresa" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VESCModel.HistContable" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VESCModel.HistMovimientosSIAS" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VESCModel.Login" Width="1.5" PointX="3.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="VESCModel.LoginEmpresa" Width="1.5" PointX="6" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VESCModel.PlanEmpresa" Width="1.5" PointX="3" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VESCModel.Precios" Width="1.5" PointX="3" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VESCModel.ProcesoMembresia" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VESCModel.RazonSocial" Width="1.5" PointX="3" PointY="28.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VESCModel.RolPantalla" Width="1.5" PointX="3.75" PointY="34.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VESCModel.sesion" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="VESCModel.idClub_CC" ManuallyRouted="false" />
+        <AssociationConnector Association="VESCModel.idFormato_CC" ManuallyRouted="false" />
+        <AssociationConnector Association="VESCModel.IdNivelClub_CC" ManuallyRouted="false" />
+        <AssociationConnector Association="VESCModel.idRol_LOG" ManuallyRouted="false" />
+        <AssociationConnector Association="VESCModel.idRol_RP" ManuallyRouted="false" />
+        <AssociationConnector Association="VESCModel.idTipoPago_EMP" ManuallyRouted="false" />
+        <AssociationConnector Association="VESCModel.idEmpresa_EMP" ManuallyRouted="false" />
+        <AssociationConnector Association="VESCModel.idEmpresa" ManuallyRouted="false" />
+        <AssociationConnector Association="VESCModel.idEmpresa_EIF" ManuallyRouted="false" />
+        <AssociationConnector Association="VESCModel.idEmpresa_PE" ManuallyRouted="false" />
+        <AssociationConnector Association="VESCModel.idEmpresa_PRE" ManuallyRouted="false" />
+        <AssociationConnector Association="VESCModel.idLogin" ManuallyRouted="false" />
+        <AssociationConnector Association="VESCModel.FK_PlanEmpresa_PlanEmpresa" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

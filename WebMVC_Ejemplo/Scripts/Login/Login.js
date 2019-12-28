@@ -12,20 +12,20 @@ app.controller("MyController", function ($scope, $http, $window) {
     $scope.soloLectura = true;
     $scope.textoCambio = "";
 
-    $scope.ValidarLogin = function (usuario, password) {
+    $scope.ValidarLogin = function (usuario1, password1) {
 
         $.ajax({
             type: "POST",
             url: "/Login/ValidarLogin",
             data: JSON.stringify(
                 {
-                    'usuario': usuario,
-                    'password': password
+                    'usuario': usuario1,
+                    'password': password1
                 }),
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
-            success: function (datos) {
-
+            success: function (datos)
+            {
                 if (datos === "OK") {
                     $scope.mostrarMensaje = false;
                     $window.location.href = "/Principal/Principal";
@@ -34,6 +34,28 @@ app.controller("MyController", function ($scope, $http, $window) {
                     $scope.mensaje = datos;
                     $scope.mostrarMensaje = true;
                 }
+
+                $scope.$apply();
+            },
+            error: function (error) {
+
+                alert("Error");
+
+            }
+        });
+
+    };
+
+    $scope.GetEmpleado = function () {
+
+        $.ajax({
+            type: "POST",
+            url: "/Login/GetEmpleado",
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (datos) {
+
+                $scope.ListaEmpleado = datos;
 
                 $scope.$apply();
             },

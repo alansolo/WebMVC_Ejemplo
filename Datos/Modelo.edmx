@@ -1,0 +1,2364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VESCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CatClub">
+          <Key>
+            <PropertyRef Name="idClub" />
+          </Key>
+          <Property Name="idClub" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="club" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="fechaInsert" Type="datetime" Nullable="false" />
+          <Property Name="usuarioInsert" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaUpdate" Type="datetime" />
+          <Property Name="usuarioUpdate" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="CategoriaClub">
+          <Key>
+            <PropertyRef Name="idClub" />
+            <PropertyRef Name="idFormato" />
+            <PropertyRef Name="idNivelClub" />
+          </Key>
+          <Property Name="idClub" Type="int" Nullable="false" />
+          <Property Name="idFormato" Type="int" Nullable="false" />
+          <Property Name="idNivelClub" Type="int" Nullable="false" />
+          <Property Name="fechaInsert" Type="datetime" Nullable="false" />
+          <Property Name="usuarioInsert" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaUpdate" Type="datetime" />
+          <Property Name="usuarioUpdate" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="CatFormato">
+          <Key>
+            <PropertyRef Name="idFormato" />
+          </Key>
+          <Property Name="idFormato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="formato" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="mensualidad" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="fechaInsert" Type="datetime" Nullable="false" />
+          <Property Name="usuarioInsert" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaUpdate" Type="datetime" />
+          <Property Name="usuarioUpdate" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="CatModalidadPago">
+          <Key>
+            <PropertyRef Name="idModalidadPago" />
+          </Key>
+          <Property Name="idModalidadPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="modalidadPago" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="fechaInsert" Type="datetime" Nullable="false" />
+          <Property Name="usuarioInsert" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaUpdate" Type="datetime" />
+          <Property Name="usuarioUpdate" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="CatNivel">
+          <Key>
+            <PropertyRef Name="idNivel" />
+          </Key>
+          <Property Name="idNivel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nivel" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="fechaInsert" Type="datetime" Nullable="false" />
+          <Property Name="usuarioInsert" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaUpdate" Type="datetime" />
+          <Property Name="usuarioUpdate" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="CatPlan">
+          <Key>
+            <PropertyRef Name="idPlan" />
+          </Key>
+          <Property Name="idPlan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="plan" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="idModalidadPago" Type="int" Nullable="false" />
+          <Property Name="fechaInsert" Type="datetime" Nullable="false" />
+          <Property Name="usuarioInsert" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaUpdate" Type="datetime" />
+          <Property Name="usuarioUpdate" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="CatRol">
+          <Key>
+            <PropertyRef Name="idRol" />
+          </Key>
+          <Property Name="idRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rol" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="fechaInsert" Type="datetime" Nullable="false" />
+          <Property Name="usuarioInsert" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaUpdate" Type="datetime" />
+          <Property Name="usuarioUpdate" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="CatTipoPago">
+          <Key>
+            <PropertyRef Name="idTipoPago" />
+          </Key>
+          <Property Name="idTipoPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipoPago" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="porcentajeDescuento" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="fechaInsert" Type="datetime" Nullable="false" />
+          <Property Name="usuarioInsert" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaUpdate" Type="datetime" />
+          <Property Name="usuarioUpdate" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+            <PropertyRef Name="idEmpresaInfFiscal" />
+            <PropertyRef Name="idEmpleado" />
+          </Key>
+          <Property Name="idEmpresa" Type="int" Nullable="false" />
+          <Property Name="idEmpresaInfFiscal" Type="int" Nullable="false" />
+          <Property Name="idEmpleado" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idEmpleadoPadre" Type="bigint" Nullable="false" />
+          <Property Name="cusId" Type="varchar" MaxLength="9" />
+          <Property Name="numEmpleado" Type="varchar" MaxLength="50" />
+          <Property Name="nombre" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="apellidoP" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="apellidoM" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaNacimiento" Type="datetime" Nullable="false" />
+          <Property Name="rfc" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="curp" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="genero" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="calle" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="numExterior" Type="int" Nullable="false" />
+          <Property Name="numInterior" Type="int" />
+          <Property Name="colonia" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="municipioDelegacion" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="cp" Type="int" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="telefono2" Type="varchar" MaxLength="45" />
+          <Property Name="idPlan" Type="int" Nullable="false" />
+          <Property Name="idClub" Type="int" Nullable="false" />
+          <Property Name="idTipoPago" Type="int" Nullable="false" />
+          <Property Name="estatus" Type="bit" Nullable="false" />
+          <Property Name="fechaInsert" Type="datetime" Nullable="false" />
+          <Property Name="usuarioInsert" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaUpdate" Type="datetime" />
+          <Property Name="usuarioUpdate" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+          </Key>
+          <Property Name="idEmpresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="empresa" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="nombreContacto" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="apellidoPContacto" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="apellidoMContacto" Type="varchar" MaxLength="45" />
+          <Property Name="puestoContacto" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="telefonoContacto" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="telefono2Contacto" Type="varchar" MaxLength="45" />
+          <Property Name="correoContacto" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="estatus" Type="bit" Nullable="false" />
+          <Property Name="fechaInsert" Type="datetime" Nullable="false" />
+          <Property Name="usuarioInsert" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaUpdate" Type="datetime" />
+          <Property Name="usuarioUpdate" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="HistContable">
+          <Key>
+            <PropertyRef Name="idHistContable" />
+            <PropertyRef Name="idEmpresa" />
+            <PropertyRef Name="idEmpresaInfFiscal" />
+            <PropertyRef Name="cusId" />
+          </Key>
+          <Property Name="idHistContable" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idEmpresa" Type="int" Nullable="false" />
+          <Property Name="idEmpresaInfFiscal" Type="int" Nullable="false" />
+          <Property Name="cusId" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="idClub" Type="int" Nullable="false" />
+          <Property Name="idPlan" Type="int" Nullable="false" />
+          <Property Name="idFormato" Type="int" Nullable="false" />
+          <Property Name="idNivel" Type="int" Nullable="false" />
+          <Property Name="idTipoPago" Type="int" Nullable="false" />
+          <Property Name="periodo" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="ivaRetencion" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="importeCIAsinIva" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ivaCIA" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="importeCIA" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="retencionSinIva" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="importeRetencion" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="importeEmpSinIva" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ivaEmpleado" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="importeEmpleado" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="importeTotal" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="fechaInsert" Type="datetime" Nullable="false" />
+          <Property Name="usuarioInsert" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaUpdate" Type="datetime" />
+          <Property Name="usuarioUpdate" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="HistMovimientosSIAS">
+          <Key>
+            <PropertyRef Name="idHistMovimientoSIAS" />
+            <PropertyRef Name="idEmpresa" />
+            <PropertyRef Name="idEmpresaInfFiscal" />
+            <PropertyRef Name="cusId" />
+          </Key>
+          <Property Name="idHistMovimientoSIAS" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idEmpresa" Type="int" Nullable="false" />
+          <Property Name="idEmpresaInfFiscal" Type="int" Nullable="false" />
+          <Property Name="cusId" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="idClub" Type="int" Nullable="false" />
+          <Property Name="idPlan" Type="int" Nullable="false" />
+          <Property Name="idFormato" Type="int" Nullable="false" />
+          <Property Name="idNivel" Type="int" Nullable="false" />
+          <Property Name="idTipoPago" Type="int" Nullable="false" />
+          <Property Name="afectacionContable" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="cuentaContable" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="concepto" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cargo" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="abono" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="modulo" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="tipoMovimiento" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaMovimiento" Type="datetime" Nullable="false" />
+          <Property Name="fechaInsert" Type="datetime" Nullable="false" />
+          <Property Name="usuarioInsert" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaUpdate" Type="datetime" />
+          <Property Name="usuarioUpdate" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="idLogin" />
+          </Key>
+          <Property Name="idLogin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idRol" Type="int" Nullable="false" />
+          <Property Name="login" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="contrasena" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="responsable" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="estatus" Type="bit" Nullable="false" />
+          <Property Name="fechaInsert" Type="datetime" Nullable="false" />
+          <Property Name="usuarioInsert" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaUpdate" Type="datetime" />
+          <Property Name="usuarioUpdate" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="LoginEmpresa">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+            <PropertyRef Name="idLogin" />
+          </Key>
+          <Property Name="idEmpresa" Type="int" Nullable="false" />
+          <Property Name="idLogin" Type="int" Nullable="false" />
+          <Property Name="estatus" Type="bit" Nullable="false" />
+          <Property Name="fechaInsert" Type="datetime" Nullable="false" />
+          <Property Name="usuarioInsert" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaUpdate" Type="datetime" />
+          <Property Name="usuarioUpdate" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="PlanEmpresa">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+            <PropertyRef Name="idEmpresaInfFiscal" />
+            <PropertyRef Name="idPlan" />
+          </Key>
+          <Property Name="idEmpresa" Type="int" Nullable="false" />
+          <Property Name="idEmpresaInfFiscal" Type="int" Nullable="false" />
+          <Property Name="idPlan" Type="int" Nullable="false" />
+          <Property Name="porcPagoCia" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="porcPagoNomina" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="porcPagoEmpleado" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="numSocios" Type="bigint" Nullable="false" />
+          <Property Name="estatus" Type="bit" Nullable="false" />
+          <Property Name="fechaInsert" Type="datetime" Nullable="false" />
+          <Property Name="usuarioInsert" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaUpdate" Type="datetime" />
+          <Property Name="usuarioUpdate" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="Precios">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+            <PropertyRef Name="idEmpresaInfFiscal" />
+            <PropertyRef Name="idPlan" />
+            <PropertyRef Name="idFormato" />
+            <PropertyRef Name="idNivelClub" />
+          </Key>
+          <Property Name="idEmpresa" Type="int" Nullable="false" />
+          <Property Name="idEmpresaInfFiscal" Type="int" Nullable="false" />
+          <Property Name="idPlan" Type="int" Nullable="false" />
+          <Property Name="idFormato" Type="int" Nullable="false" />
+          <Property Name="idNivelClub" Type="int" Nullable="false" />
+          <Property Name="porcentaje" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="nuevaMensualidad" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="mensCargoAutomatico" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="fechaInsert" Type="datetime" Nullable="false" />
+          <Property Name="usuarioInsert" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaUpdate" Type="datetime" />
+          <Property Name="usuarioUpdate" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="ProcesoMembresia">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+            <PropertyRef Name="idEmpresaInfFiscal" />
+            <PropertyRef Name="idEmpleado" />
+          </Key>
+          <Property Name="idEmpresa" Type="int" Nullable="false" />
+          <Property Name="idEmpresaInfFiscal" Type="int" Nullable="false" />
+          <Property Name="idEmpleado" Type="bigint" Nullable="false" />
+          <Property Name="cusId" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="estatus" Type="int" Nullable="false" />
+          <Property Name="fechaInsert" Type="datetime" Nullable="false" />
+          <Property Name="usuarioInsert" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaUpdate" Type="datetime" />
+          <Property Name="usuarioUpdate" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="RazonSocial">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+            <PropertyRef Name="idRazonSocial" />
+          </Key>
+          <Property Name="idEmpresa" Type="int" Nullable="false" />
+          <Property Name="idRazonSocial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="razonSocial" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="rfc" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="calle" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="numeroExt" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="numeroInt" Type="varchar" MaxLength="45" />
+          <Property Name="colonia" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="municipioDelegacion" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="cp" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="vigenciaInicio" Type="datetime" Nullable="false" />
+          <Property Name="vigenciaFinal" Type="datetime" Nullable="false" />
+          <Property Name="estatus" Type="bit" Nullable="false" />
+          <Property Name="fechaInsert" Type="datetime" Nullable="false" />
+          <Property Name="usuarioInsert" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaUpdate" Type="datetime" />
+          <Property Name="usuarioupdate" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="RolPantalla">
+          <Key>
+            <PropertyRef Name="idRol" />
+            <PropertyRef Name="idPantalla" />
+          </Key>
+          <Property Name="idRol" Type="int" Nullable="false" />
+          <Property Name="idPantalla" Type="int" Nullable="false" />
+          <Property Name="permiso" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaInsert" Type="datetime" Nullable="false" />
+          <Property Name="usuarioInsert" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="fechaUpdate" Type="datetime" />
+          <Property Name="usuarioUpdate" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'VESC.dbo.sesion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="sesion">
+          <Key>
+            <PropertyRef Name="Sesion" />
+            <PropertyRef Name="idLogin" />
+            <PropertyRef Name="fechaHoraInicio" />
+            <PropertyRef Name="active" />
+            <PropertyRef Name="ip" />
+          </Key>
+          <Property Name="Sesion" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="idLogin" Type="int" Nullable="false" />
+          <Property Name="fechaHoraInicio" Type="datetime" Nullable="false" />
+          <Property Name="fechaHoraFin" Type="datetime" />
+          <Property Name="active" Type="bit" Nullable="false" />
+          <Property Name="ip" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_PlanEmpresa_PlanEmpresa">
+          <End Role="PlanEmpresa" Type="Self.PlanEmpresa" Multiplicity="1" />
+          <End Role="PlanEmpresa1" Type="Self.PlanEmpresa" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PlanEmpresa">
+              <PropertyRef Name="idEmpresa" />
+              <PropertyRef Name="idEmpresaInfFiscal" />
+              <PropertyRef Name="idPlan" />
+            </Principal>
+            <Dependent Role="PlanEmpresa1">
+              <PropertyRef Name="idEmpresa" />
+              <PropertyRef Name="idEmpresaInfFiscal" />
+              <PropertyRef Name="idPlan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idClub_CC">
+          <End Role="CatClub" Type="Self.CatClub" Multiplicity="1" />
+          <End Role="CategoriaClub" Type="Self.CategoriaClub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatClub">
+              <PropertyRef Name="idClub" />
+            </Principal>
+            <Dependent Role="CategoriaClub">
+              <PropertyRef Name="idClub" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEmpresa">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="LoginEmpresa" Type="Self.LoginEmpresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="LoginEmpresa">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEmpresa_EIF">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="RazonSocial" Type="Self.RazonSocial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="RazonSocial">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEmpresa_EMP">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEmpresa_PE">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="PlanEmpresa" Type="Self.PlanEmpresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="PlanEmpresa">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEmpresa_PRE">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="Precios" Type="Self.Precios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="Precios">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idFormato_CC">
+          <End Role="CatFormato" Type="Self.CatFormato" Multiplicity="1" />
+          <End Role="CategoriaClub" Type="Self.CategoriaClub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatFormato">
+              <PropertyRef Name="idFormato" />
+            </Principal>
+            <Dependent Role="CategoriaClub">
+              <PropertyRef Name="idFormato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idLogin">
+          <End Role="Login" Type="Self.Login" Multiplicity="1" />
+          <End Role="LoginEmpresa" Type="Self.LoginEmpresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="idLogin" />
+            </Principal>
+            <Dependent Role="LoginEmpresa">
+              <PropertyRef Name="idLogin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="IdNivelClub_CC">
+          <End Role="CatNivel" Type="Self.CatNivel" Multiplicity="1" />
+          <End Role="CategoriaClub" Type="Self.CategoriaClub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatNivel">
+              <PropertyRef Name="idNivel" />
+            </Principal>
+            <Dependent Role="CategoriaClub">
+              <PropertyRef Name="idNivelClub" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idRol_LOG">
+          <End Role="CatRol" Type="Self.CatRol" Multiplicity="1" />
+          <End Role="Login" Type="Self.Login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatRol">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="Login">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idRol_RP">
+          <End Role="CatRol" Type="Self.CatRol" Multiplicity="1" />
+          <End Role="RolPantalla" Type="Self.RolPantalla" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatRol">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="RolPantalla">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idTipoPago_EMP">
+          <End Role="CatTipoPago" Type="Self.CatTipoPago" Multiplicity="1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatTipoPago">
+              <PropertyRef Name="idTipoPago" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="idTipoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetClub" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idClub" Type="int" Mode="In" />
+          <Parameter Name="club" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmpresa" Type="int" Mode="In" />
+          <Parameter Name="empresa" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetFormato" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idFormato" Type="int" Mode="In" />
+          <Parameter Name="formato" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetLoginEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idLogin" Type="int" Mode="In" />
+          <Parameter Name="idEmpresa" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetModalidadPago" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idModaliadPago" Type="int" Mode="In" />
+          <Parameter Name="modalidadPago" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetNivel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idNivel" Type="int" Mode="In" />
+          <Parameter Name="nivel" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idPlan" Type="int" Mode="In" />
+          <Parameter Name="plan" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetRazonSocial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idRazonSocial" Type="int" Mode="In" />
+          <Parameter Name="razonSocial" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertClub" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="club" Type="varchar" Mode="In" />
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="usuarioInsert" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="empresa" Type="varchar" Mode="In" />
+          <Parameter Name="nombreContacto" Type="varchar" Mode="In" />
+          <Parameter Name="apellidoPContacto" Type="varchar" Mode="In" />
+          <Parameter Name="apellidoMContacto" Type="varchar" Mode="In" />
+          <Parameter Name="puestoContacto" Type="varchar" Mode="In" />
+          <Parameter Name="telefonoContacto" Type="varchar" Mode="In" />
+          <Parameter Name="telefono2Contacto" Type="varchar" Mode="In" />
+          <Parameter Name="correoContacto" Type="varchar" Mode="In" />
+          <Parameter Name="estatus" Type="bit" Mode="In" />
+          <Parameter Name="idLogin" Type="int" Mode="In" />
+          <Parameter Name="usuarioInsert" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertFormato" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="formato" Type="varchar" Mode="In" />
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="mensualidad" Type="decimal" Mode="In" />
+          <Parameter Name="usuarioInsert" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertLoginEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmpresa" Type="int" Mode="In" />
+          <Parameter Name="idLogin" Type="int" Mode="In" />
+          <Parameter Name="estatus" Type="bit" Mode="In" />
+          <Parameter Name="usuarioInsert" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertModalidadPago" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="modalidadPago" Type="varchar" Mode="In" />
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="usuarioInsert" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertNivel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nivel" Type="varchar" Mode="In" />
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="usuarioInsert" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertPlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="plan" Type="varchar" Mode="In" />
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="idModalidadPago" Type="int" Mode="In" />
+          <Parameter Name="usuarioInsert" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_altaEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmpresa" Type="int" Mode="In" />
+          <Parameter Name="idEmpresaInfFiscal" Type="int" Mode="In" />
+          <Parameter Name="idEmpleadoPadre" Type="bigint" Mode="In" />
+          <Parameter Name="cusId" Type="varchar" Mode="In" />
+          <Parameter Name="numEmpleado" Type="varchar" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="apellidoP" Type="varchar" Mode="In" />
+          <Parameter Name="apellidoM" Type="varchar" Mode="In" />
+          <Parameter Name="fechaNacimiento" Type="datetime" Mode="In" />
+          <Parameter Name="rfc" Type="varchar" Mode="In" />
+          <Parameter Name="curp" Type="varchar" Mode="In" />
+          <Parameter Name="genero" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="calle" Type="varchar" Mode="In" />
+          <Parameter Name="numExterior" Type="int" Mode="In" />
+          <Parameter Name="numInterior" Type="int" Mode="In" />
+          <Parameter Name="colonia" Type="varchar" Mode="In" />
+          <Parameter Name="municipioDelegacion" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="varchar" Mode="In" />
+          <Parameter Name="cp" Type="int" Mode="In" />
+          <Parameter Name="telefono" Type="varchar" Mode="In" />
+          <Parameter Name="telefono2" Type="varchar" Mode="In" />
+          <Parameter Name="estatus" Type="bit" Mode="In" />
+          <Parameter Name="idPlan" Type="int" Mode="In" />
+          <Parameter Name="idClub" Type="int" Mode="In" />
+          <Parameter Name="idTipoPago" Type="int" Mode="In" />
+          <Parameter Name="usuarioInsert" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_buscarEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmpresaId" Type="int" Mode="In" />
+          <Parameter Name="RazonSocialId" Type="int" Mode="In" />
+          <Parameter Name="EmpleadoID" Type="int" Mode="In" />
+          <Parameter Name="EmpleadoPadreID" Type="int" Mode="In" />
+          <Parameter Name="Estatus" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_cerrarSesion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="token" Type="uniqueidentifier" Mode="In" />
+        </Function>
+        <Function Name="sp_consultaPadron" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmpresa" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_crearSesion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idUsuario" Type="varchar" Mode="In" />
+          <Parameter Name="ip" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_editEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmpresa" Type="int" Mode="In" />
+          <Parameter Name="idEmpresaInfFiscal" Type="int" Mode="In" />
+          <Parameter Name="idEmpleado" Type="bigint" Mode="In" />
+          <Parameter Name="idEmpleadoPadre" Type="bigint" Mode="In" />
+          <Parameter Name="cusId" Type="varchar" Mode="In" />
+          <Parameter Name="numEmpleado" Type="varchar" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="apellidoP" Type="varchar" Mode="In" />
+          <Parameter Name="apellidoM" Type="varchar" Mode="In" />
+          <Parameter Name="fechaNacimiento" Type="datetime" Mode="In" />
+          <Parameter Name="rfc" Type="varchar" Mode="In" />
+          <Parameter Name="curp" Type="varchar" Mode="In" />
+          <Parameter Name="genero" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="calle" Type="varchar" Mode="In" />
+          <Parameter Name="numExterior" Type="int" Mode="In" />
+          <Parameter Name="numInterior" Type="int" Mode="In" />
+          <Parameter Name="colonia" Type="varchar" Mode="In" />
+          <Parameter Name="municipioDelegacion" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="varchar" Mode="In" />
+          <Parameter Name="cp" Type="int" Mode="In" />
+          <Parameter Name="telefono" Type="varchar" Mode="In" />
+          <Parameter Name="telefono2" Type="varchar" Mode="In" />
+          <Parameter Name="idPlan" Type="int" Mode="In" />
+          <Parameter Name="idClub" Type="int" Mode="In" />
+          <Parameter Name="idTipoPago" Type="int" Mode="In" />
+          <Parameter Name="estatus" Type="bit" Mode="In" />
+          <Parameter Name="usuarioUpdate" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usuario" Type="varchar" Mode="In" />
+          <Parameter Name="contrasena" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_sesionUnica" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idUsuario" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_validarSesionActiva" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="token" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="ip" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateClub" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idClub" Type="int" Mode="In" />
+          <Parameter Name="club" Type="varchar" Mode="In" />
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="usuarioUpdate" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEmpresa" Type="int" Mode="In" />
+          <Parameter Name="empresa" Type="varchar" Mode="In" />
+          <Parameter Name="nombreContacto" Type="varchar" Mode="In" />
+          <Parameter Name="apellidoPContacto" Type="varchar" Mode="In" />
+          <Parameter Name="apellidoMContacto" Type="varchar" Mode="In" />
+          <Parameter Name="puestoContacto" Type="varchar" Mode="In" />
+          <Parameter Name="telefonoContacto" Type="varchar" Mode="In" />
+          <Parameter Name="telefono2Contacto" Type="varchar" Mode="In" />
+          <Parameter Name="correoContacto" Type="varchar" Mode="In" />
+          <Parameter Name="estatus" Type="bit" Mode="In" />
+          <Parameter Name="usuarioUpdate" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateFormato" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idFormato" Type="int" Mode="In" />
+          <Parameter Name="formato" Type="varchar" Mode="In" />
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="mensualidad" Type="decimal" Mode="In" />
+          <Parameter Name="usuarioUpdate" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateModalidadPago" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idModalidadPago" Type="int" Mode="In" />
+          <Parameter Name="modalidadPago" Type="varchar" Mode="In" />
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="usuarioUpdate" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateNivel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idNivel" Type="int" Mode="In" />
+          <Parameter Name="nivel" Type="varchar" Mode="In" />
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="usuarioUpdate" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdatePlan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idPlan" Type="int" Mode="In" />
+          <Parameter Name="plan" Type="varchar" Mode="In" />
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="idModalidadPago" Type="int" Mode="In" />
+          <Parameter Name="usuarioUpdate" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="VESCModelStoreContainer">
+          <EntitySet Name="CatClub" EntityType="Self.CatClub" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoriaClub" EntityType="Self.CategoriaClub" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatFormato" EntityType="Self.CatFormato" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatModalidadPago" EntityType="Self.CatModalidadPago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatNivel" EntityType="Self.CatNivel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatPlan" EntityType="Self.CatPlan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatRol" EntityType="Self.CatRol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatTipoPago" EntityType="Self.CatTipoPago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HistContable" EntityType="Self.HistContable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HistMovimientosSIAS" EntityType="Self.HistMovimientosSIAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginEmpresa" EntityType="Self.LoginEmpresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlanEmpresa" EntityType="Self.PlanEmpresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Precios" EntityType="Self.Precios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProcesoMembresia" EntityType="Self.ProcesoMembresia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RazonSocial" EntityType="Self.RazonSocial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolPantalla" EntityType="Self.RolPantalla" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sesion" EntityType="Self.sesion" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [sesion].[Sesion] AS [Sesion], 
+    [sesion].[idLogin] AS [idLogin], 
+    [sesion].[fechaHoraInicio] AS [fechaHoraInicio], 
+    [sesion].[fechaHoraFin] AS [fechaHoraFin], 
+    [sesion].[active] AS [active], 
+    [sesion].[ip] AS [ip]
+    FROM [dbo].[sesion] AS [sesion]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_PlanEmpresa_PlanEmpresa" Association="Self.FK_PlanEmpresa_PlanEmpresa">
+            <End Role="PlanEmpresa" EntitySet="PlanEmpresa" />
+            <End Role="PlanEmpresa1" EntitySet="PlanEmpresa" />
+          </AssociationSet>
+          <AssociationSet Name="idClub_CC" Association="Self.idClub_CC">
+            <End Role="CatClub" EntitySet="CatClub" />
+            <End Role="CategoriaClub" EntitySet="CategoriaClub" />
+          </AssociationSet>
+          <AssociationSet Name="idEmpresa" Association="Self.idEmpresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="LoginEmpresa" EntitySet="LoginEmpresa" />
+          </AssociationSet>
+          <AssociationSet Name="idEmpresa_EIF" Association="Self.idEmpresa_EIF">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="RazonSocial" EntitySet="RazonSocial" />
+          </AssociationSet>
+          <AssociationSet Name="idEmpresa_EMP" Association="Self.idEmpresa_EMP">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="idEmpresa_PE" Association="Self.idEmpresa_PE">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="PlanEmpresa" EntitySet="PlanEmpresa" />
+          </AssociationSet>
+          <AssociationSet Name="idEmpresa_PRE" Association="Self.idEmpresa_PRE">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Precios" EntitySet="Precios" />
+          </AssociationSet>
+          <AssociationSet Name="idFormato_CC" Association="Self.idFormato_CC">
+            <End Role="CatFormato" EntitySet="CatFormato" />
+            <End Role="CategoriaClub" EntitySet="CategoriaClub" />
+          </AssociationSet>
+          <AssociationSet Name="idLogin" Association="Self.idLogin">
+            <End Role="Login" EntitySet="Login" />
+            <End Role="LoginEmpresa" EntitySet="LoginEmpresa" />
+          </AssociationSet>
+          <AssociationSet Name="IdNivelClub_CC" Association="Self.IdNivelClub_CC">
+            <End Role="CatNivel" EntitySet="CatNivel" />
+            <End Role="CategoriaClub" EntitySet="CategoriaClub" />
+          </AssociationSet>
+          <AssociationSet Name="idRol_LOG" Association="Self.idRol_LOG">
+            <End Role="CatRol" EntitySet="CatRol" />
+            <End Role="Login" EntitySet="Login" />
+          </AssociationSet>
+          <AssociationSet Name="idRol_RP" Association="Self.idRol_RP">
+            <End Role="CatRol" EntitySet="CatRol" />
+            <End Role="RolPantalla" EntitySet="RolPantalla" />
+          </AssociationSet>
+          <AssociationSet Name="idTipoPago_EMP" Association="Self.idTipoPago_EMP">
+            <End Role="CatTipoPago" EntitySet="CatTipoPago" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VESCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CatClub">
+          <Key>
+            <PropertyRef Name="idClub" />
+          </Key>
+          <Property Name="idClub" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="club" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuarioInsert" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="usuarioUpdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CategoriaClub" Relationship="Self.idClub_CC" FromRole="CatClub" ToRole="CategoriaClub" />
+        </EntityType>
+        <EntityType Name="CategoriaClub">
+          <Key>
+            <PropertyRef Name="idClub" />
+            <PropertyRef Name="idFormato" />
+            <PropertyRef Name="idNivelClub" />
+          </Key>
+          <Property Name="idClub" Type="Int32" Nullable="false" />
+          <Property Name="idFormato" Type="Int32" Nullable="false" />
+          <Property Name="idNivelClub" Type="Int32" Nullable="false" />
+          <Property Name="fechaInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuarioInsert" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="usuarioUpdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CatClub" Relationship="Self.idClub_CC" FromRole="CategoriaClub" ToRole="CatClub" />
+          <NavigationProperty Name="CatFormato" Relationship="Self.idFormato_CC" FromRole="CategoriaClub" ToRole="CatFormato" />
+          <NavigationProperty Name="CatNivel" Relationship="Self.IdNivelClub_CC" FromRole="CategoriaClub" ToRole="CatNivel" />
+        </EntityType>
+        <EntityType Name="CatFormato">
+          <Key>
+            <PropertyRef Name="idFormato" />
+          </Key>
+          <Property Name="idFormato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="formato" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mensualidad" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="fechaInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuarioInsert" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="usuarioUpdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CategoriaClub" Relationship="Self.idFormato_CC" FromRole="CatFormato" ToRole="CategoriaClub" />
+        </EntityType>
+        <EntityType Name="CatModalidadPago">
+          <Key>
+            <PropertyRef Name="idModalidadPago" />
+          </Key>
+          <Property Name="idModalidadPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="modalidadPago" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuarioInsert" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="usuarioUpdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CatNivel">
+          <Key>
+            <PropertyRef Name="idNivel" />
+          </Key>
+          <Property Name="idNivel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nivel" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuarioInsert" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="usuarioUpdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CategoriaClub" Relationship="Self.IdNivelClub_CC" FromRole="CatNivel" ToRole="CategoriaClub" />
+        </EntityType>
+        <EntityType Name="CatPlan">
+          <Key>
+            <PropertyRef Name="idPlan" />
+          </Key>
+          <Property Name="idPlan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="plan" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idModalidadPago" Type="Int32" Nullable="false" />
+          <Property Name="fechaInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuarioInsert" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="usuarioUpdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CatRol">
+          <Key>
+            <PropertyRef Name="idRol" />
+          </Key>
+          <Property Name="idRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuarioInsert" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="usuarioUpdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Login" Relationship="Self.idRol_LOG" FromRole="CatRol" ToRole="Login" />
+          <NavigationProperty Name="RolPantalla" Relationship="Self.idRol_RP" FromRole="CatRol" ToRole="RolPantalla" />
+        </EntityType>
+        <EntityType Name="CatTipoPago">
+          <Key>
+            <PropertyRef Name="idTipoPago" />
+          </Key>
+          <Property Name="idTipoPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipoPago" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="porcentajeDescuento" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="fechaInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuarioInsert" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="usuarioUpdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empleado" Relationship="Self.idTipoPago_EMP" FromRole="CatTipoPago" ToRole="Empleado" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+            <PropertyRef Name="idEmpresaInfFiscal" />
+            <PropertyRef Name="idEmpleado" />
+          </Key>
+          <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="idEmpresaInfFiscal" Type="Int32" Nullable="false" />
+          <Property Name="idEmpleado" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idEmpleadoPadre" Type="Int64" Nullable="false" />
+          <Property Name="cusId" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="numEmpleado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoP" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoM" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaNacimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="rfc" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="curp" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="genero" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="calle" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="numExterior" Type="Int32" Nullable="false" />
+          <Property Name="numInterior" Type="Int32" />
+          <Property Name="colonia" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="municipioDelegacion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cp" Type="Int32" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono2" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="idPlan" Type="Int32" Nullable="false" />
+          <Property Name="idClub" Type="Int32" Nullable="false" />
+          <Property Name="idTipoPago" Type="Int32" Nullable="false" />
+          <Property Name="estatus" Type="Boolean" Nullable="false" />
+          <Property Name="fechaInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuarioInsert" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="usuarioUpdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CatTipoPago" Relationship="Self.idTipoPago_EMP" FromRole="Empleado" ToRole="CatTipoPago" />
+          <NavigationProperty Name="Empresa" Relationship="Self.idEmpresa_EMP" FromRole="Empleado" ToRole="Empresa" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+          </Key>
+          <Property Name="idEmpresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="empresa1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombreContacto" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoPContacto" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoMContacto" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="puestoContacto" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefonoContacto" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono2Contacto" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="correoContacto" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estatus" Type="Boolean" Nullable="false" />
+          <Property Name="fechaInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuarioInsert" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="usuarioUpdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empleado" Relationship="Self.idEmpresa_EMP" FromRole="Empresa" ToRole="Empleado" />
+          <NavigationProperty Name="LoginEmpresa" Relationship="Self.idEmpresa" FromRole="Empresa" ToRole="LoginEmpresa" />
+          <NavigationProperty Name="RazonSocial" Relationship="Self.idEmpresa_EIF" FromRole="Empresa" ToRole="RazonSocial" />
+          <NavigationProperty Name="PlanEmpresa" Relationship="Self.idEmpresa_PE" FromRole="Empresa" ToRole="PlanEmpresa" />
+          <NavigationProperty Name="Precios" Relationship="Self.idEmpresa_PRE" FromRole="Empresa" ToRole="Precios" />
+        </EntityType>
+        <EntityType Name="HistContable">
+          <Key>
+            <PropertyRef Name="idHistContable" />
+            <PropertyRef Name="idEmpresa" />
+            <PropertyRef Name="idEmpresaInfFiscal" />
+            <PropertyRef Name="cusId" />
+          </Key>
+          <Property Name="idHistContable" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="idEmpresaInfFiscal" Type="Int32" Nullable="false" />
+          <Property Name="cusId" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idClub" Type="Int32" Nullable="false" />
+          <Property Name="idPlan" Type="Int32" Nullable="false" />
+          <Property Name="idFormato" Type="Int32" Nullable="false" />
+          <Property Name="idNivel" Type="Int32" Nullable="false" />
+          <Property Name="idTipoPago" Type="Int32" Nullable="false" />
+          <Property Name="periodo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ivaRetencion" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="importeCIAsinIva" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ivaCIA" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="importeCIA" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="retencionSinIva" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="importeRetencion" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="importeEmpSinIva" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ivaEmpleado" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="importeEmpleado" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="importeTotal" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="fechaInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuarioInsert" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="usuarioUpdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="HistMovimientosSIAS">
+          <Key>
+            <PropertyRef Name="idHistMovimientoSIAS" />
+            <PropertyRef Name="idEmpresa" />
+            <PropertyRef Name="idEmpresaInfFiscal" />
+            <PropertyRef Name="cusId" />
+          </Key>
+          <Property Name="idHistMovimientoSIAS" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="idEmpresaInfFiscal" Type="Int32" Nullable="false" />
+          <Property Name="cusId" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idClub" Type="Int32" Nullable="false" />
+          <Property Name="idPlan" Type="Int32" Nullable="false" />
+          <Property Name="idFormato" Type="Int32" Nullable="false" />
+          <Property Name="idNivel" Type="Int32" Nullable="false" />
+          <Property Name="idTipoPago" Type="Int32" Nullable="false" />
+          <Property Name="afectacionContable" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cuentaContable" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="concepto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cargo" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="abono" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="modulo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipoMovimiento" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaMovimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fechaInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuarioInsert" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="usuarioUpdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="idLogin" />
+          </Key>
+          <Property Name="idLogin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idRol" Type="Int32" Nullable="false" />
+          <Property Name="login1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contrasena" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="responsable" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estatus" Type="Boolean" Nullable="false" />
+          <Property Name="fechaInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuarioInsert" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="usuarioUpdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CatRol" Relationship="Self.idRol_LOG" FromRole="Login" ToRole="CatRol" />
+          <NavigationProperty Name="LoginEmpresa" Relationship="Self.idLogin" FromRole="Login" ToRole="LoginEmpresa" />
+        </EntityType>
+        <EntityType Name="LoginEmpresa">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+            <PropertyRef Name="idLogin" />
+          </Key>
+          <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="idLogin" Type="Int32" Nullable="false" />
+          <Property Name="estatus" Type="Boolean" Nullable="false" />
+          <Property Name="fechaInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuarioInsert" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="usuarioUpdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empresa" Relationship="Self.idEmpresa" FromRole="LoginEmpresa" ToRole="Empresa" />
+          <NavigationProperty Name="Login" Relationship="Self.idLogin" FromRole="LoginEmpresa" ToRole="Login" />
+        </EntityType>
+        <EntityType Name="PlanEmpresa">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+            <PropertyRef Name="idEmpresaInfFiscal" />
+            <PropertyRef Name="idPlan" />
+          </Key>
+          <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="idEmpresaInfFiscal" Type="Int32" Nullable="false" />
+          <Property Name="idPlan" Type="Int32" Nullable="false" />
+          <Property Name="porcPagoCia" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="porcPagoNomina" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="porcPagoEmpleado" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="numSocios" Type="Int64" Nullable="false" />
+          <Property Name="estatus" Type="Boolean" Nullable="false" />
+          <Property Name="fechaInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuarioInsert" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="usuarioUpdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empresa" Relationship="Self.idEmpresa_PE" FromRole="PlanEmpresa" ToRole="Empresa" />
+          <NavigationProperty Name="PlanEmpresa1" Relationship="Self.FK_PlanEmpresa_PlanEmpresa" FromRole="PlanEmpresa" ToRole="PlanEmpresa1" />
+          <NavigationProperty Name="PlanEmpresa2" Relationship="Self.FK_PlanEmpresa_PlanEmpresa" FromRole="PlanEmpresa1" ToRole="PlanEmpresa" />
+        </EntityType>
+        <EntityType Name="Precios">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+            <PropertyRef Name="idEmpresaInfFiscal" />
+            <PropertyRef Name="idPlan" />
+            <PropertyRef Name="idFormato" />
+            <PropertyRef Name="idNivelClub" />
+          </Key>
+          <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="idEmpresaInfFiscal" Type="Int32" Nullable="false" />
+          <Property Name="idPlan" Type="Int32" Nullable="false" />
+          <Property Name="idFormato" Type="Int32" Nullable="false" />
+          <Property Name="idNivelClub" Type="Int32" Nullable="false" />
+          <Property Name="porcentaje" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="nuevaMensualidad" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="mensCargoAutomatico" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="fechaInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuarioInsert" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="usuarioUpdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empresa" Relationship="Self.idEmpresa_PRE" FromRole="Precios" ToRole="Empresa" />
+        </EntityType>
+        <EntityType Name="ProcesoMembresia">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+            <PropertyRef Name="idEmpresaInfFiscal" />
+            <PropertyRef Name="idEmpleado" />
+          </Key>
+          <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="idEmpresaInfFiscal" Type="Int32" Nullable="false" />
+          <Property Name="idEmpleado" Type="Int64" Nullable="false" />
+          <Property Name="cusId" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estatus" Type="Int32" Nullable="false" />
+          <Property Name="fechaInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuarioInsert" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="usuarioUpdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="RazonSocial">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+            <PropertyRef Name="idRazonSocial" />
+          </Key>
+          <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="idRazonSocial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="razonSocial1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rfc" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="calle" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="numeroExt" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="numeroInt" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="colonia" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="municipioDelegacion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cp" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vigenciaInicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="vigenciaFinal" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="estatus" Type="Boolean" Nullable="false" />
+          <Property Name="fechaInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuarioInsert" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="usuarioupdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empresa" Relationship="Self.idEmpresa_EIF" FromRole="RazonSocial" ToRole="Empresa" />
+        </EntityType>
+        <EntityType Name="RolPantalla">
+          <Key>
+            <PropertyRef Name="idRol" />
+            <PropertyRef Name="idPantalla" />
+          </Key>
+          <Property Name="idRol" Type="Int32" Nullable="false" />
+          <Property Name="idPantalla" Type="Int32" Nullable="false" />
+          <Property Name="permiso" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuarioInsert" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaUpdate" Type="DateTime" Precision="3" />
+          <Property Name="usuarioUpdate" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CatRol" Relationship="Self.idRol_RP" FromRole="RolPantalla" ToRole="CatRol" />
+        </EntityType>
+        <EntityType Name="sesion">
+          <Key>
+            <PropertyRef Name="Sesion1" />
+            <PropertyRef Name="idLogin" />
+            <PropertyRef Name="fechaHoraInicio" />
+            <PropertyRef Name="active" />
+            <PropertyRef Name="ip" />
+          </Key>
+          <Property Name="Sesion1" Type="Guid" Nullable="false" />
+          <Property Name="idLogin" Type="Int32" Nullable="false" />
+          <Property Name="fechaHoraInicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fechaHoraFin" Type="DateTime" Precision="3" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
+          <Property Name="ip" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="idClub_CC">
+          <End Role="CatClub" Type="Self.CatClub" Multiplicity="1" />
+          <End Role="CategoriaClub" Type="Self.CategoriaClub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatClub">
+              <PropertyRef Name="idClub" />
+            </Principal>
+            <Dependent Role="CategoriaClub">
+              <PropertyRef Name="idClub" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idFormato_CC">
+          <End Role="CatFormato" Type="Self.CatFormato" Multiplicity="1" />
+          <End Role="CategoriaClub" Type="Self.CategoriaClub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatFormato">
+              <PropertyRef Name="idFormato" />
+            </Principal>
+            <Dependent Role="CategoriaClub">
+              <PropertyRef Name="idFormato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="IdNivelClub_CC">
+          <End Role="CatNivel" Type="Self.CatNivel" Multiplicity="1" />
+          <End Role="CategoriaClub" Type="Self.CategoriaClub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatNivel">
+              <PropertyRef Name="idNivel" />
+            </Principal>
+            <Dependent Role="CategoriaClub">
+              <PropertyRef Name="idNivelClub" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idRol_LOG">
+          <End Role="CatRol" Type="Self.CatRol" Multiplicity="1" />
+          <End Role="Login" Type="Self.Login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatRol">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="Login">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idRol_RP">
+          <End Role="CatRol" Type="Self.CatRol" Multiplicity="1" />
+          <End Role="RolPantalla" Type="Self.RolPantalla" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatRol">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="RolPantalla">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idTipoPago_EMP">
+          <End Role="CatTipoPago" Type="Self.CatTipoPago" Multiplicity="1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatTipoPago">
+              <PropertyRef Name="idTipoPago" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="idTipoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEmpresa_EMP">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEmpresa">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="LoginEmpresa" Type="Self.LoginEmpresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="LoginEmpresa">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEmpresa_EIF">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="RazonSocial" Type="Self.RazonSocial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="RazonSocial">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEmpresa_PE">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="PlanEmpresa" Type="Self.PlanEmpresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="PlanEmpresa">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEmpresa_PRE">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+          <End Role="Precios" Type="Self.Precios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="idEmpresa" />
+            </Principal>
+            <Dependent Role="Precios">
+              <PropertyRef Name="idEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idLogin">
+          <End Role="Login" Type="Self.Login" Multiplicity="1" />
+          <End Role="LoginEmpresa" Type="Self.LoginEmpresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="idLogin" />
+            </Principal>
+            <Dependent Role="LoginEmpresa">
+              <PropertyRef Name="idLogin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PlanEmpresa_PlanEmpresa">
+          <End Role="PlanEmpresa" Type="Self.PlanEmpresa" Multiplicity="1" />
+          <End Role="PlanEmpresa1" Type="Self.PlanEmpresa" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PlanEmpresa">
+              <PropertyRef Name="idEmpresa" />
+              <PropertyRef Name="idEmpresaInfFiscal" />
+              <PropertyRef Name="idPlan" />
+            </Principal>
+            <Dependent Role="PlanEmpresa1">
+              <PropertyRef Name="idEmpresa" />
+              <PropertyRef Name="idEmpresaInfFiscal" />
+              <PropertyRef Name="idPlan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VESCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CatClub" EntityType="Self.CatClub" />
+          <EntitySet Name="CategoriaClub" EntityType="Self.CategoriaClub" />
+          <EntitySet Name="CatFormato" EntityType="Self.CatFormato" />
+          <EntitySet Name="CatModalidadPago" EntityType="Self.CatModalidadPago" />
+          <EntitySet Name="CatNivel" EntityType="Self.CatNivel" />
+          <EntitySet Name="CatPlan" EntityType="Self.CatPlan" />
+          <EntitySet Name="CatRol" EntityType="Self.CatRol" />
+          <EntitySet Name="CatTipoPago" EntityType="Self.CatTipoPago" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" />
+          <EntitySet Name="HistContable" EntityType="Self.HistContable" />
+          <EntitySet Name="HistMovimientosSIAS" EntityType="Self.HistMovimientosSIAS" />
+          <EntitySet Name="Login" EntityType="Self.Login" />
+          <EntitySet Name="LoginEmpresa" EntityType="Self.LoginEmpresa" />
+          <EntitySet Name="PlanEmpresa" EntityType="Self.PlanEmpresa" />
+          <EntitySet Name="Precios" EntityType="Self.Precios" />
+          <EntitySet Name="ProcesoMembresia" EntityType="Self.ProcesoMembresia" />
+          <EntitySet Name="RazonSocial" EntityType="Self.RazonSocial" />
+          <EntitySet Name="RolPantalla" EntityType="Self.RolPantalla" />
+          <EntitySet Name="sesion" EntityType="Self.sesion" />
+          <AssociationSet Name="idClub_CC" Association="Self.idClub_CC">
+            <End Role="CatClub" EntitySet="CatClub" />
+            <End Role="CategoriaClub" EntitySet="CategoriaClub" />
+          </AssociationSet>
+          <AssociationSet Name="idFormato_CC" Association="Self.idFormato_CC">
+            <End Role="CatFormato" EntitySet="CatFormato" />
+            <End Role="CategoriaClub" EntitySet="CategoriaClub" />
+          </AssociationSet>
+          <AssociationSet Name="IdNivelClub_CC" Association="Self.IdNivelClub_CC">
+            <End Role="CatNivel" EntitySet="CatNivel" />
+            <End Role="CategoriaClub" EntitySet="CategoriaClub" />
+          </AssociationSet>
+          <AssociationSet Name="idRol_LOG" Association="Self.idRol_LOG">
+            <End Role="CatRol" EntitySet="CatRol" />
+            <End Role="Login" EntitySet="Login" />
+          </AssociationSet>
+          <AssociationSet Name="idRol_RP" Association="Self.idRol_RP">
+            <End Role="CatRol" EntitySet="CatRol" />
+            <End Role="RolPantalla" EntitySet="RolPantalla" />
+          </AssociationSet>
+          <AssociationSet Name="idTipoPago_EMP" Association="Self.idTipoPago_EMP">
+            <End Role="CatTipoPago" EntitySet="CatTipoPago" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="idEmpresa_EMP" Association="Self.idEmpresa_EMP">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="idEmpresa" Association="Self.idEmpresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="LoginEmpresa" EntitySet="LoginEmpresa" />
+          </AssociationSet>
+          <AssociationSet Name="idEmpresa_EIF" Association="Self.idEmpresa_EIF">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="RazonSocial" EntitySet="RazonSocial" />
+          </AssociationSet>
+          <AssociationSet Name="idEmpresa_PE" Association="Self.idEmpresa_PE">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="PlanEmpresa" EntitySet="PlanEmpresa" />
+          </AssociationSet>
+          <AssociationSet Name="idEmpresa_PRE" Association="Self.idEmpresa_PRE">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Precios" EntitySet="Precios" />
+          </AssociationSet>
+          <AssociationSet Name="idLogin" Association="Self.idLogin">
+            <End Role="Login" EntitySet="Login" />
+            <End Role="LoginEmpresa" EntitySet="LoginEmpresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PlanEmpresa_PlanEmpresa" Association="Self.FK_PlanEmpresa_PlanEmpresa">
+            <End Role="PlanEmpresa" EntitySet="PlanEmpresa" />
+            <End Role="PlanEmpresa1" EntitySet="PlanEmpresa" />
+          </AssociationSet>
+          <FunctionImport Name="GetClub" ReturnType="Collection(VESCModel.GetClub_Result)">
+            <Parameter Name="idClub" Mode="In" Type="Int32" />
+            <Parameter Name="club" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetEmpresa" ReturnType="Collection(VESCModel.GetEmpresa_Result)">
+            <Parameter Name="idEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="empresa" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetFormato" ReturnType="Collection(VESCModel.GetFormato_Result)">
+            <Parameter Name="idFormato" Mode="In" Type="Int32" />
+            <Parameter Name="formato" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetLogin" ReturnType="Collection(VESCModel.GetLogin_Result)" />
+          <FunctionImport Name="GetLoginEmpresa" ReturnType="Collection(VESCModel.GetLoginEmpresa_Result)">
+            <Parameter Name="idLogin" Mode="In" Type="Int32" />
+            <Parameter Name="idEmpresa" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetModalidadPago" ReturnType="Collection(VESCModel.GetModalidadPago_Result)">
+            <Parameter Name="idModaliadPago" Mode="In" Type="Int32" />
+            <Parameter Name="modalidadPago" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetNivel" ReturnType="Collection(VESCModel.GetNivel_Result)">
+            <Parameter Name="idNivel" Mode="In" Type="Int32" />
+            <Parameter Name="nivel" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetPlan" ReturnType="Collection(VESCModel.GetPlan_Result)">
+            <Parameter Name="idPlan" Mode="In" Type="Int32" />
+            <Parameter Name="plan" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetRazonSocial" ReturnType="Collection(VESCModel.GetRazonSocial_Result)">
+            <Parameter Name="idRazonSocial" Mode="In" Type="Int32" />
+            <Parameter Name="razonSocial" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertClub">
+            <Parameter Name="club" Mode="In" Type="String" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="usuarioInsert" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertEmpresa">
+            <Parameter Name="empresa" Mode="In" Type="String" />
+            <Parameter Name="nombreContacto" Mode="In" Type="String" />
+            <Parameter Name="apellidoPContacto" Mode="In" Type="String" />
+            <Parameter Name="apellidoMContacto" Mode="In" Type="String" />
+            <Parameter Name="puestoContacto" Mode="In" Type="String" />
+            <Parameter Name="telefonoContacto" Mode="In" Type="String" />
+            <Parameter Name="telefono2Contacto" Mode="In" Type="String" />
+            <Parameter Name="correoContacto" Mode="In" Type="String" />
+            <Parameter Name="estatus" Mode="In" Type="Boolean" />
+            <Parameter Name="idLogin" Mode="In" Type="Int32" />
+            <Parameter Name="usuarioInsert" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertFormato">
+            <Parameter Name="formato" Mode="In" Type="String" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="mensualidad" Mode="In" Type="Decimal" />
+            <Parameter Name="usuarioInsert" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertLoginEmpresa">
+            <Parameter Name="idEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="idLogin" Mode="In" Type="Int32" />
+            <Parameter Name="estatus" Mode="In" Type="Boolean" />
+            <Parameter Name="usuarioInsert" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertModalidadPago">
+            <Parameter Name="modalidadPago" Mode="In" Type="String" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="usuarioInsert" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertNivel">
+            <Parameter Name="nivel" Mode="In" Type="String" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="usuarioInsert" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertPlan">
+            <Parameter Name="plan" Mode="In" Type="String" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="idModalidadPago" Mode="In" Type="Int32" />
+            <Parameter Name="usuarioInsert" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_altaEmpleado">
+            <Parameter Name="idEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="idEmpresaInfFiscal" Mode="In" Type="Int32" />
+            <Parameter Name="idEmpleadoPadre" Mode="In" Type="Int64" />
+            <Parameter Name="cusId" Mode="In" Type="String" />
+            <Parameter Name="numEmpleado" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="apellidoP" Mode="In" Type="String" />
+            <Parameter Name="apellidoM" Mode="In" Type="String" />
+            <Parameter Name="fechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="rfc" Mode="In" Type="String" />
+            <Parameter Name="curp" Mode="In" Type="String" />
+            <Parameter Name="genero" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="calle" Mode="In" Type="String" />
+            <Parameter Name="numExterior" Mode="In" Type="Int32" />
+            <Parameter Name="numInterior" Mode="In" Type="Int32" />
+            <Parameter Name="colonia" Mode="In" Type="String" />
+            <Parameter Name="municipioDelegacion" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+            <Parameter Name="cp" Mode="In" Type="Int32" />
+            <Parameter Name="telefono" Mode="In" Type="String" />
+            <Parameter Name="telefono2" Mode="In" Type="String" />
+            <Parameter Name="estatus" Mode="In" Type="Boolean" />
+            <Parameter Name="idPlan" Mode="In" Type="Int32" />
+            <Parameter Name="idClub" Mode="In" Type="Int32" />
+            <Parameter Name="idTipoPago" Mode="In" Type="Int32" />
+            <Parameter Name="usuarioInsert" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_buscarEmpleado" ReturnType="Collection(VESCModel.sp_buscarEmpleado_Result)">
+            <Parameter Name="EmpresaId" Mode="In" Type="Int32" />
+            <Parameter Name="RazonSocialId" Mode="In" Type="Int32" />
+            <Parameter Name="EmpleadoID" Mode="In" Type="Int32" />
+            <Parameter Name="EmpleadoPadreID" Mode="In" Type="Int32" />
+            <Parameter Name="Estatus" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_cerrarSesion">
+            <Parameter Name="token" Mode="In" Type="Guid" />
+          </FunctionImport>
+          <FunctionImport Name="sp_consultaPadron">
+            <Parameter Name="idEmpresa" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_crearSesion" ReturnType="Collection(Guid)">
+            <Parameter Name="idUsuario" Mode="In" Type="String" />
+            <Parameter Name="ip" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_editEmpleado">
+            <Parameter Name="idEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="idEmpresaInfFiscal" Mode="In" Type="Int32" />
+            <Parameter Name="idEmpleado" Mode="In" Type="Int64" />
+            <Parameter Name="idEmpleadoPadre" Mode="In" Type="Int64" />
+            <Parameter Name="cusId" Mode="In" Type="String" />
+            <Parameter Name="numEmpleado" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="apellidoP" Mode="In" Type="String" />
+            <Parameter Name="apellidoM" Mode="In" Type="String" />
+            <Parameter Name="fechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="rfc" Mode="In" Type="String" />
+            <Parameter Name="curp" Mode="In" Type="String" />
+            <Parameter Name="genero" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="calle" Mode="In" Type="String" />
+            <Parameter Name="numExterior" Mode="In" Type="Int32" />
+            <Parameter Name="numInterior" Mode="In" Type="Int32" />
+            <Parameter Name="colonia" Mode="In" Type="String" />
+            <Parameter Name="municipioDelegacion" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+            <Parameter Name="cp" Mode="In" Type="Int32" />
+            <Parameter Name="telefono" Mode="In" Type="String" />
+            <Parameter Name="telefono2" Mode="In" Type="String" />
+            <Parameter Name="idPlan" Mode="In" Type="Int32" />
+            <Parameter Name="idClub" Mode="In" Type="Int32" />
+            <Parameter Name="idTipoPago" Mode="In" Type="Int32" />
+            <Parameter Name="estatus" Mode="In" Type="Boolean" />
+            <Parameter Name="usuarioUpdate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_login" ReturnType="Collection(Int32)">
+            <Parameter Name="usuario" Mode="In" Type="String" />
+            <Parameter Name="contrasena" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_sesionUnica" ReturnType="Collection(String)">
+            <Parameter Name="idUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_validarSesionActiva" ReturnType="Collection(Int32)">
+            <Parameter Name="token" Mode="In" Type="Guid" />
+            <Parameter Name="ip" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateClub">
+            <Parameter Name="idClub" Mode="In" Type="Int32" />
+            <Parameter Name="club" Mode="In" Type="String" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="usuarioUpdate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateEmpresa">
+            <Parameter Name="idEmpresa" Mode="In" Type="Int32" />
+            <Parameter Name="empresa" Mode="In" Type="String" />
+            <Parameter Name="nombreContacto" Mode="In" Type="String" />
+            <Parameter Name="apellidoPContacto" Mode="In" Type="String" />
+            <Parameter Name="apellidoMContacto" Mode="In" Type="String" />
+            <Parameter Name="puestoContacto" Mode="In" Type="String" />
+            <Parameter Name="telefonoContacto" Mode="In" Type="String" />
+            <Parameter Name="telefono2Contacto" Mode="In" Type="String" />
+            <Parameter Name="correoContacto" Mode="In" Type="String" />
+            <Parameter Name="estatus" Mode="In" Type="Boolean" />
+            <Parameter Name="usuarioUpdate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateFormato">
+            <Parameter Name="idFormato" Mode="In" Type="Int32" />
+            <Parameter Name="formato" Mode="In" Type="String" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="mensualidad" Mode="In" Type="Decimal" />
+            <Parameter Name="usuarioUpdate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateModalidadPago">
+            <Parameter Name="idModalidadPago" Mode="In" Type="Int32" />
+            <Parameter Name="modalidadPago" Mode="In" Type="String" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="usuarioUpdate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateNivel">
+            <Parameter Name="idNivel" Mode="In" Type="Int32" />
+            <Parameter Name="nivel" Mode="In" Type="String" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="usuarioUpdate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdatePlan">
+            <Parameter Name="idPlan" Mode="In" Type="Int32" />
+            <Parameter Name="plan" Mode="In" Type="String" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="idModalidadPago" Mode="In" Type="Int32" />
+            <Parameter Name="usuarioUpdate" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetClub_Result">
+          <Property Type="Int32" Name="idClub" Nullable="false" />
+          <Property Type="String" Name="club" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="70" />
+          <Property Type="DateTime" Name="fechaInsert" Nullable="false" Precision="23" />
+          <Property Type="String" Name="usuarioInsert" Nullable="false" MaxLength="45" />
+          <Property Type="DateTime" Name="fechaUpdate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="usuarioUpdate" Nullable="true" MaxLength="45" />
+        </ComplexType>
+        <ComplexType Name="GetEmpresa_Result">
+          <Property Type="Int32" Name="idEmpresa" Nullable="false" />
+          <Property Type="String" Name="empresa" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="nombreContacto" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="apellidoPContacto" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="apellidoMContacto" Nullable="true" MaxLength="45" />
+          <Property Type="String" Name="puestoContacto" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="telefonoContacto" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="telefono2Contacto" Nullable="true" MaxLength="45" />
+          <Property Type="String" Name="correoContacto" Nullable="false" MaxLength="45" />
+          <Property Type="Boolean" Name="estatus" Nullable="false" />
+          <Property Type="DateTime" Name="fechaInsert" Nullable="false" Precision="23" />
+          <Property Type="String" Name="usuarioInsert" Nullable="false" MaxLength="45" />
+          <Property Type="DateTime" Name="fechaUpdate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="usuarioUpdate" Nullable="true" MaxLength="45" />
+        </ComplexType>
+        <ComplexType Name="GetFormato_Result">
+          <Property Type="Int32" Name="idFormato" Nullable="false" />
+          <Property Type="String" Name="formato" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="70" />
+          <Property Type="Decimal" Name="mensualidad" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="fechaInsert" Nullable="false" Precision="23" />
+          <Property Type="String" Name="usuarioInsert" Nullable="false" MaxLength="45" />
+          <Property Type="DateTime" Name="fechaUpdate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="usuarioUpdate" Nullable="true" MaxLength="45" />
+        </ComplexType>
+        <ComplexType Name="GetLogin_Result">
+          <Property Type="Int32" Name="idLogin" Nullable="false" />
+          <Property Type="Int32" Name="idRol" Nullable="false" />
+          <Property Type="String" Name="login" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="contrasena" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="responsable" Nullable="false" MaxLength="60" />
+          <Property Type="Boolean" Name="estatus" Nullable="false" />
+          <Property Type="DateTime" Name="fechaInsert" Nullable="false" Precision="23" />
+          <Property Type="String" Name="usuarioInsert" Nullable="false" MaxLength="45" />
+          <Property Type="DateTime" Name="fechaUpdate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="usuarioUpdate" Nullable="true" MaxLength="45" />
+        </ComplexType>
+        <ComplexType Name="GetLoginEmpresa_Result">
+          <Property Type="Int32" Name="idEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="idLogin" Nullable="false" />
+          <Property Type="Boolean" Name="estatus" Nullable="false" />
+          <Property Type="DateTime" Name="fechaInsert" Nullable="false" Precision="23" />
+          <Property Type="String" Name="usuarioInsert" Nullable="false" MaxLength="45" />
+          <Property Type="DateTime" Name="fechaUpdate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="usuarioUpdate" Nullable="true" MaxLength="45" />
+        </ComplexType>
+        <ComplexType Name="GetModalidadPago_Result">
+          <Property Type="Int32" Name="idModalidadPago" Nullable="false" />
+          <Property Type="String" Name="modalidadPago" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="70" />
+          <Property Type="DateTime" Name="fechaInsert" Nullable="false" Precision="23" />
+          <Property Type="String" Name="usuarioInsert" Nullable="false" MaxLength="45" />
+          <Property Type="DateTime" Name="fechaUpdate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="usuarioUpdate" Nullable="true" MaxLength="45" />
+        </ComplexType>
+        <ComplexType Name="GetNivel_Result">
+          <Property Type="Int32" Name="idNivel" Nullable="false" />
+          <Property Type="String" Name="nivel" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="70" />
+          <Property Type="DateTime" Name="fechaInsert" Nullable="false" Precision="23" />
+          <Property Type="String" Name="usuarioInsert" Nullable="false" MaxLength="45" />
+          <Property Type="DateTime" Name="fechaUpdate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="usuarioUpdate" Nullable="true" MaxLength="45" />
+        </ComplexType>
+        <ComplexType Name="GetPlan_Result">
+          <Property Type="Int32" Name="idPlan" Nullable="false" />
+          <Property Type="String" Name="plan" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="70" />
+          <Property Type="Int32" Name="idModalidadPago" Nullable="false" />
+          <Property Type="DateTime" Name="fechaInsert" Nullable="false" Precision="23" />
+          <Property Type="String" Name="usuarioInsert" Nullable="false" MaxLength="45" />
+          <Property Type="DateTime" Name="fechaUpdate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="usuarioUpdate" Nullable="true" MaxLength="45" />
+        </ComplexType>
+        <ComplexType Name="GetRazonSocial_Result">
+          <Property Type="Int32" Name="idEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="idRazonSocial" Nullable="false" />
+          <Property Type="String" Name="razonSocial" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="rfc" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="calle" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="numeroExt" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="numeroInt" Nullable="true" MaxLength="45" />
+          <Property Type="String" Name="colonia" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="municipioDelegacion" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="cp" Nullable="false" MaxLength="45" />
+          <Property Type="DateTime" Name="vigenciaInicio" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="vigenciaFinal" Nullable="false" Precision="23" />
+          <Property Type="Boolean" Name="estatus" Nullable="false" />
+          <Property Type="DateTime" Name="fechaInsert" Nullable="false" Precision="23" />
+          <Property Type="String" Name="usuarioInsert" Nullable="false" MaxLength="45" />
+          <Property Type="DateTime" Name="fechaUpdate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="usuarioUpdate" Nullable="true" MaxLength="45" />
+        </ComplexType>
+        <ComplexType Name="sp_buscarEmpleado_Result">
+          <Property Type="Int32" Name="idEmpresa" Nullable="false" />
+          <Property Type="Int32" Name="idEmpresaInfFiscal" Nullable="false" />
+          <Property Type="Int64" Name="idEmpleado" Nullable="false" />
+          <Property Type="Int64" Name="idEmpleadoPadre" Nullable="false" />
+          <Property Type="String" Name="cusid" Nullable="true" MaxLength="9" />
+          <Property Type="String" Name="numEmpleado" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="apellidoP" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="apellidoM" Nullable="false" MaxLength="45" />
+          <Property Type="DateTime" Name="fechaNacimiento" Nullable="false" Precision="23" />
+          <Property Type="String" Name="rfc" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="curp" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="genero" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="calle" Nullable="false" MaxLength="45" />
+          <Property Type="Int32" Name="numExterior" Nullable="false" />
+          <Property Type="Int32" Name="numInterior" Nullable="true" />
+          <Property Type="String" Name="colonia" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="municipioDelegacion" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="45" />
+          <Property Type="Int32" Name="cp" Nullable="false" />
+          <Property Type="String" Name="telefono" Nullable="false" MaxLength="45" />
+          <Property Type="String" Name="telefono2" Nullable="true" MaxLength="45" />
+          <Property Type="Int32" Name="idPlan" Nullable="false" />
+          <Property Type="Int32" Name="idClub" Nullable="false" />
+          <Property Type="Int32" Name="idTipoPago" Nullable="false" />
+          <Property Type="Boolean" Name="estatus" Nullable="false" />
+          <Property Type="DateTime" Name="fechaInsert" Nullable="false" Precision="23" />
+          <Property Type="String" Name="usuarioInsert" Nullable="false" MaxLength="45" />
+          <Property Type="DateTime" Name="fechaUpdate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="usuarioUpdate" Nullable="true" MaxLength="45" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VESCModelStoreContainer" CdmEntityContainer="VESCEntities">
+          <EntitySetMapping Name="CatClub">
+            <EntityTypeMapping TypeName="VESCModel.CatClub">
+              <MappingFragment StoreEntitySet="CatClub">
+                <ScalarProperty Name="idClub" ColumnName="idClub" />
+                <ScalarProperty Name="club" ColumnName="club" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoriaClub">
+            <EntityTypeMapping TypeName="VESCModel.CategoriaClub">
+              <MappingFragment StoreEntitySet="CategoriaClub">
+                <ScalarProperty Name="idClub" ColumnName="idClub" />
+                <ScalarProperty Name="idFormato" ColumnName="idFormato" />
+                <ScalarProperty Name="idNivelClub" ColumnName="idNivelClub" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatFormato">
+            <EntityTypeMapping TypeName="VESCModel.CatFormato">
+              <MappingFragment StoreEntitySet="CatFormato">
+                <ScalarProperty Name="idFormato" ColumnName="idFormato" />
+                <ScalarProperty Name="formato" ColumnName="formato" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="mensualidad" ColumnName="mensualidad" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatModalidadPago">
+            <EntityTypeMapping TypeName="VESCModel.CatModalidadPago">
+              <MappingFragment StoreEntitySet="CatModalidadPago">
+                <ScalarProperty Name="idModalidadPago" ColumnName="idModalidadPago" />
+                <ScalarProperty Name="modalidadPago" ColumnName="modalidadPago" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatNivel">
+            <EntityTypeMapping TypeName="VESCModel.CatNivel">
+              <MappingFragment StoreEntitySet="CatNivel">
+                <ScalarProperty Name="idNivel" ColumnName="idNivel" />
+                <ScalarProperty Name="nivel" ColumnName="nivel" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatPlan">
+            <EntityTypeMapping TypeName="VESCModel.CatPlan">
+              <MappingFragment StoreEntitySet="CatPlan">
+                <ScalarProperty Name="idPlan" ColumnName="idPlan" />
+                <ScalarProperty Name="plan" ColumnName="plan" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="idModalidadPago" ColumnName="idModalidadPago" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatRol">
+            <EntityTypeMapping TypeName="VESCModel.CatRol">
+              <MappingFragment StoreEntitySet="CatRol">
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatTipoPago">
+            <EntityTypeMapping TypeName="VESCModel.CatTipoPago">
+              <MappingFragment StoreEntitySet="CatTipoPago">
+                <ScalarProperty Name="idTipoPago" ColumnName="idTipoPago" />
+                <ScalarProperty Name="tipoPago" ColumnName="tipoPago" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="porcentajeDescuento" ColumnName="porcentajeDescuento" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleado">
+            <EntityTypeMapping TypeName="VESCModel.Empleado">
+              <MappingFragment StoreEntitySet="Empleado">
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="idEmpresaInfFiscal" ColumnName="idEmpresaInfFiscal" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+                <ScalarProperty Name="idEmpleadoPadre" ColumnName="idEmpleadoPadre" />
+                <ScalarProperty Name="cusId" ColumnName="cusId" />
+                <ScalarProperty Name="numEmpleado" ColumnName="numEmpleado" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidoP" ColumnName="apellidoP" />
+                <ScalarProperty Name="apellidoM" ColumnName="apellidoM" />
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="rfc" ColumnName="rfc" />
+                <ScalarProperty Name="curp" ColumnName="curp" />
+                <ScalarProperty Name="genero" ColumnName="genero" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="calle" ColumnName="calle" />
+                <ScalarProperty Name="numExterior" ColumnName="numExterior" />
+                <ScalarProperty Name="numInterior" ColumnName="numInterior" />
+                <ScalarProperty Name="colonia" ColumnName="colonia" />
+                <ScalarProperty Name="municipioDelegacion" ColumnName="municipioDelegacion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="cp" ColumnName="cp" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="telefono2" ColumnName="telefono2" />
+                <ScalarProperty Name="idPlan" ColumnName="idPlan" />
+                <ScalarProperty Name="idClub" ColumnName="idClub" />
+                <ScalarProperty Name="idTipoPago" ColumnName="idTipoPago" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresa">
+            <EntityTypeMapping TypeName="VESCModel.Empresa">
+              <MappingFragment StoreEntitySet="Empresa">
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="empresa1" ColumnName="empresa" />
+                <ScalarProperty Name="nombreContacto" ColumnName="nombreContacto" />
+                <ScalarProperty Name="apellidoPContacto" ColumnName="apellidoPContacto" />
+                <ScalarProperty Name="apellidoMContacto" ColumnName="apellidoMContacto" />
+                <ScalarProperty Name="puestoContacto" ColumnName="puestoContacto" />
+                <ScalarProperty Name="telefonoContacto" ColumnName="telefonoContacto" />
+                <ScalarProperty Name="telefono2Contacto" ColumnName="telefono2Contacto" />
+                <ScalarProperty Name="correoContacto" ColumnName="correoContacto" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HistContable">
+            <EntityTypeMapping TypeName="VESCModel.HistContable">
+              <MappingFragment StoreEntitySet="HistContable">
+                <ScalarProperty Name="idHistContable" ColumnName="idHistContable" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="idEmpresaInfFiscal" ColumnName="idEmpresaInfFiscal" />
+                <ScalarProperty Name="cusId" ColumnName="cusId" />
+                <ScalarProperty Name="idClub" ColumnName="idClub" />
+                <ScalarProperty Name="idPlan" ColumnName="idPlan" />
+                <ScalarProperty Name="idFormato" ColumnName="idFormato" />
+                <ScalarProperty Name="idNivel" ColumnName="idNivel" />
+                <ScalarProperty Name="idTipoPago" ColumnName="idTipoPago" />
+                <ScalarProperty Name="periodo" ColumnName="periodo" />
+                <ScalarProperty Name="ivaRetencion" ColumnName="ivaRetencion" />
+                <ScalarProperty Name="importeCIAsinIva" ColumnName="importeCIAsinIva" />
+                <ScalarProperty Name="ivaCIA" ColumnName="ivaCIA" />
+                <ScalarProperty Name="importeCIA" ColumnName="importeCIA" />
+                <ScalarProperty Name="retencionSinIva" ColumnName="retencionSinIva" />
+                <ScalarProperty Name="importeRetencion" ColumnName="importeRetencion" />
+                <ScalarProperty Name="importeEmpSinIva" ColumnName="importeEmpSinIva" />
+                <ScalarProperty Name="ivaEmpleado" ColumnName="ivaEmpleado" />
+                <ScalarProperty Name="importeEmpleado" ColumnName="importeEmpleado" />
+                <ScalarProperty Name="importeTotal" ColumnName="importeTotal" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HistMovimientosSIAS">
+            <EntityTypeMapping TypeName="VESCModel.HistMovimientosSIAS">
+              <MappingFragment StoreEntitySet="HistMovimientosSIAS">
+                <ScalarProperty Name="idHistMovimientoSIAS" ColumnName="idHistMovimientoSIAS" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="idEmpresaInfFiscal" ColumnName="idEmpresaInfFiscal" />
+                <ScalarProperty Name="cusId" ColumnName="cusId" />
+                <ScalarProperty Name="idClub" ColumnName="idClub" />
+                <ScalarProperty Name="idPlan" ColumnName="idPlan" />
+                <ScalarProperty Name="idFormato" ColumnName="idFormato" />
+                <ScalarProperty Name="idNivel" ColumnName="idNivel" />
+                <ScalarProperty Name="idTipoPago" ColumnName="idTipoPago" />
+                <ScalarProperty Name="afectacionContable" ColumnName="afectacionContable" />
+                <ScalarProperty Name="cuentaContable" ColumnName="cuentaContable" />
+                <ScalarProperty Name="concepto" ColumnName="concepto" />
+                <ScalarProperty Name="cargo" ColumnName="cargo" />
+                <ScalarProperty Name="abono" ColumnName="abono" />
+                <ScalarProperty Name="modulo" ColumnName="modulo" />
+                <ScalarProperty Name="tipoMovimiento" ColumnName="tipoMovimiento" />
+                <ScalarProperty Name="fechaMovimiento" ColumnName="fechaMovimiento" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Login">
+            <EntityTypeMapping TypeName="VESCModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="idLogin" ColumnName="idLogin" />
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="login1" ColumnName="login" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="responsable" ColumnName="responsable" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginEmpresa">
+            <EntityTypeMapping TypeName="VESCModel.LoginEmpresa">
+              <MappingFragment StoreEntitySet="LoginEmpresa">
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="idLogin" ColumnName="idLogin" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlanEmpresa">
+            <EntityTypeMapping TypeName="VESCModel.PlanEmpresa">
+              <MappingFragment StoreEntitySet="PlanEmpresa">
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="idEmpresaInfFiscal" ColumnName="idEmpresaInfFiscal" />
+                <ScalarProperty Name="idPlan" ColumnName="idPlan" />
+                <ScalarProperty Name="porcPagoCia" ColumnName="porcPagoCia" />
+                <ScalarProperty Name="porcPagoNomina" ColumnName="porcPagoNomina" />
+                <ScalarProperty Name="porcPagoEmpleado" ColumnName="porcPagoEmpleado" />
+                <ScalarProperty Name="numSocios" ColumnName="numSocios" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Precios">
+            <EntityTypeMapping TypeName="VESCModel.Precios">
+              <MappingFragment StoreEntitySet="Precios">
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="idEmpresaInfFiscal" ColumnName="idEmpresaInfFiscal" />
+                <ScalarProperty Name="idPlan" ColumnName="idPlan" />
+                <ScalarProperty Name="idFormato" ColumnName="idFormato" />
+                <ScalarProperty Name="idNivelClub" ColumnName="idNivelClub" />
+                <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
+                <ScalarProperty Name="nuevaMensualidad" ColumnName="nuevaMensualidad" />
+                <ScalarProperty Name="mensCargoAutomatico" ColumnName="mensCargoAutomatico" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProcesoMembresia">
+            <EntityTypeMapping TypeName="VESCModel.ProcesoMembresia">
+              <MappingFragment StoreEntitySet="ProcesoMembresia">
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="idEmpresaInfFiscal" ColumnName="idEmpresaInfFiscal" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+                <ScalarProperty Name="cusId" ColumnName="cusId" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RazonSocial">
+            <EntityTypeMapping TypeName="VESCModel.RazonSocial">
+              <MappingFragment StoreEntitySet="RazonSocial">
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="idRazonSocial" ColumnName="idRazonSocial" />
+                <ScalarProperty Name="razonSocial1" ColumnName="razonSocial" />
+                <ScalarProperty Name="rfc" ColumnName="rfc" />
+                <ScalarProperty Name="calle" ColumnName="calle" />
+                <ScalarProperty Name="numeroExt" ColumnName="numeroExt" />
+                <ScalarProperty Name="numeroInt" ColumnName="numeroInt" />
+                <ScalarProperty Name="colonia" ColumnName="colonia" />
+                <ScalarProperty Name="municipioDelegacion" ColumnName="municipioDelegacion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="cp" ColumnName="cp" />
+                <ScalarProperty Name="vigenciaInicio" ColumnName="vigenciaInicio" />
+                <ScalarProperty Name="vigenciaFinal" ColumnName="vigenciaFinal" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioupdate" ColumnName="usuarioupdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RolPantalla">
+            <EntityTypeMapping TypeName="VESCModel.RolPantalla">
+              <MappingFragment StoreEntitySet="RolPantalla">
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="idPantalla" ColumnName="idPantalla" />
+                <ScalarProperty Name="permiso" ColumnName="permiso" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sesion">
+            <EntityTypeMapping TypeName="VESCModel.sesion">
+              <MappingFragment StoreEntitySet="sesion">
+                <ScalarProperty Name="Sesion1" ColumnName="Sesion" />
+                <ScalarProperty Name="idLogin" ColumnName="idLogin" />
+                <ScalarProperty Name="fechaHoraInicio" ColumnName="fechaHoraInicio" />
+                <ScalarProperty Name="fechaHoraFin" ColumnName="fechaHoraFin" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetClub" FunctionName="VESCModel.Store.GetClub">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VESCModel.GetClub_Result">
+                <ScalarProperty Name="idClub" ColumnName="idClub" />
+                <ScalarProperty Name="club" ColumnName="club" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetEmpresa" FunctionName="VESCModel.Store.GetEmpresa">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VESCModel.GetEmpresa_Result">
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="empresa" ColumnName="empresa" />
+                <ScalarProperty Name="nombreContacto" ColumnName="nombreContacto" />
+                <ScalarProperty Name="apellidoPContacto" ColumnName="apellidoPContacto" />
+                <ScalarProperty Name="apellidoMContacto" ColumnName="apellidoMContacto" />
+                <ScalarProperty Name="puestoContacto" ColumnName="puestoContacto" />
+                <ScalarProperty Name="telefonoContacto" ColumnName="telefonoContacto" />
+                <ScalarProperty Name="telefono2Contacto" ColumnName="telefono2Contacto" />
+                <ScalarProperty Name="correoContacto" ColumnName="correoContacto" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetFormato" FunctionName="VESCModel.Store.GetFormato">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VESCModel.GetFormato_Result">
+                <ScalarProperty Name="idFormato" ColumnName="idFormato" />
+                <ScalarProperty Name="formato" ColumnName="formato" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="mensualidad" ColumnName="mensualidad" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetLogin" FunctionName="VESCModel.Store.GetLogin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VESCModel.GetLogin_Result">
+                <ScalarProperty Name="idLogin" ColumnName="idLogin" />
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="responsable" ColumnName="responsable" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetLoginEmpresa" FunctionName="VESCModel.Store.GetLoginEmpresa">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VESCModel.GetLoginEmpresa_Result">
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="idLogin" ColumnName="idLogin" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetModalidadPago" FunctionName="VESCModel.Store.GetModalidadPago">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VESCModel.GetModalidadPago_Result">
+                <ScalarProperty Name="idModalidadPago" ColumnName="idModalidadPago" />
+                <ScalarProperty Name="modalidadPago" ColumnName="modalidadPago" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetNivel" FunctionName="VESCModel.Store.GetNivel">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VESCModel.GetNivel_Result">
+                <ScalarProperty Name="idNivel" ColumnName="idNivel" />
+                <ScalarProperty Name="nivel" ColumnName="nivel" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetPlan" FunctionName="VESCModel.Store.GetPlan">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VESCModel.GetPlan_Result">
+                <ScalarProperty Name="idPlan" ColumnName="idPlan" />
+                <ScalarProperty Name="plan" ColumnName="plan" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="idModalidadPago" ColumnName="idModalidadPago" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetRazonSocial" FunctionName="VESCModel.Store.GetRazonSocial">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VESCModel.GetRazonSocial_Result">
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="idRazonSocial" ColumnName="idRazonSocial" />
+                <ScalarProperty Name="razonSocial" ColumnName="razonSocial" />
+                <ScalarProperty Name="rfc" ColumnName="rfc" />
+                <ScalarProperty Name="calle" ColumnName="calle" />
+                <ScalarProperty Name="numeroExt" ColumnName="numeroExt" />
+                <ScalarProperty Name="numeroInt" ColumnName="numeroInt" />
+                <ScalarProperty Name="colonia" ColumnName="colonia" />
+                <ScalarProperty Name="municipioDelegacion" ColumnName="municipioDelegacion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="cp" ColumnName="cp" />
+                <ScalarProperty Name="vigenciaInicio" ColumnName="vigenciaInicio" />
+                <ScalarProperty Name="vigenciaFinal" ColumnName="vigenciaFinal" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="InsertClub" FunctionName="VESCModel.Store.InsertClub" />
+          <FunctionImportMapping FunctionImportName="InsertEmpresa" FunctionName="VESCModel.Store.InsertEmpresa" />
+          <FunctionImportMapping FunctionImportName="InsertFormato" FunctionName="VESCModel.Store.InsertFormato" />
+          <FunctionImportMapping FunctionImportName="InsertLoginEmpresa" FunctionName="VESCModel.Store.InsertLoginEmpresa" />
+          <FunctionImportMapping FunctionImportName="InsertModalidadPago" FunctionName="VESCModel.Store.InsertModalidadPago" />
+          <FunctionImportMapping FunctionImportName="InsertNivel" FunctionName="VESCModel.Store.InsertNivel" />
+          <FunctionImportMapping FunctionImportName="InsertPlan" FunctionName="VESCModel.Store.InsertPlan" />
+          <FunctionImportMapping FunctionImportName="sp_altaEmpleado" FunctionName="VESCModel.Store.sp_altaEmpleado" />
+          <FunctionImportMapping FunctionImportName="sp_buscarEmpleado" FunctionName="VESCModel.Store.sp_buscarEmpleado">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VESCModel.sp_buscarEmpleado_Result">
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="idEmpresaInfFiscal" ColumnName="idEmpresaInfFiscal" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+                <ScalarProperty Name="idEmpleadoPadre" ColumnName="idEmpleadoPadre" />
+                <ScalarProperty Name="cusid" ColumnName="cusid" />
+                <ScalarProperty Name="numEmpleado" ColumnName="numEmpleado" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidoP" ColumnName="apellidoP" />
+                <ScalarProperty Name="apellidoM" ColumnName="apellidoM" />
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="rfc" ColumnName="rfc" />
+                <ScalarProperty Name="curp" ColumnName="curp" />
+                <ScalarProperty Name="genero" ColumnName="genero" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="calle" ColumnName="calle" />
+                <ScalarProperty Name="numExterior" ColumnName="numExterior" />
+                <ScalarProperty Name="numInterior" ColumnName="numInterior" />
+                <ScalarProperty Name="colonia" ColumnName="colonia" />
+                <ScalarProperty Name="municipioDelegacion" ColumnName="municipioDelegacion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="cp" ColumnName="cp" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="telefono2" ColumnName="telefono2" />
+                <ScalarProperty Name="idPlan" ColumnName="idPlan" />
+                <ScalarProperty Name="idClub" ColumnName="idClub" />
+                <ScalarProperty Name="idTipoPago" ColumnName="idTipoPago" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="fechaInsert" ColumnName="fechaInsert" />
+                <ScalarProperty Name="usuarioInsert" ColumnName="usuarioInsert" />
+                <ScalarProperty Name="fechaUpdate" ColumnName="fechaUpdate" />
+                <ScalarProperty Name="usuarioUpdate" ColumnName="usuarioUpdate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_cerrarSesion" FunctionName="VESCModel.Store.sp_cerrarSesion" />
+          <FunctionImportMapping FunctionImportName="sp_consultaPadron" FunctionName="VESCModel.Store.sp_consultaPadron" />
+          <FunctionImportMapping FunctionImportName="sp_crearSesion" FunctionName="VESCModel.Store.sp_crearSesion" />
+          <FunctionImportMapping FunctionImportName="sp_editEmpleado" FunctionName="VESCModel.Store.sp_editEmpleado" />
+          <FunctionImportMapping FunctionImportName="sp_login" FunctionName="VESCModel.Store.sp_login" />
+          <FunctionImportMapping FunctionImportName="sp_sesionUnica" FunctionName="VESCModel.Store.sp_sesionUnica" />
+          <FunctionImportMapping FunctionImportName="sp_validarSesionActiva" FunctionName="VESCModel.Store.sp_validarSesionActiva" />
+          <FunctionImportMapping FunctionImportName="UpdateClub" FunctionName="VESCModel.Store.UpdateClub" />
+          <FunctionImportMapping FunctionImportName="UpdateEmpresa" FunctionName="VESCModel.Store.UpdateEmpresa" />
+          <FunctionImportMapping FunctionImportName="UpdateFormato" FunctionName="VESCModel.Store.UpdateFormato" />
+          <FunctionImportMapping FunctionImportName="UpdateModalidadPago" FunctionName="VESCModel.Store.UpdateModalidadPago" />
+          <FunctionImportMapping FunctionImportName="UpdateNivel" FunctionName="VESCModel.Store.UpdateNivel" />
+          <FunctionImportMapping FunctionImportName="UpdatePlan" FunctionName="VESCModel.Store.UpdatePlan" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

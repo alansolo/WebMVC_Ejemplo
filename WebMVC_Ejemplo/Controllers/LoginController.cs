@@ -35,18 +35,44 @@ namespace WebMVC_Ejemplo.Controllers
         {
             string mensaje = "";
 
-            //TENDRIA QUE IR A LA BASE O ALGUN SERVICIO A COMPARAR EL USUARIO
+            try
+            {
+                //TENDRIA QUE IR A LA BASE O ALGUN SERVICIO A COMPARAR EL USUARIO
 
-            if (usuario == "alberto" && password == "alberto123")
-            {
-                mensaje = "OK";
+                if (usuario == "alberto" && password == "alberto123")
+                {
+                    mensaje = "OK";
+                }
+                else
+                {
+                    mensaje = "El usuario y/o password es incorrecto.";
+                }
             }
-            else
+            catch (Exception ex)
             {
-                mensaje = "El usuario y/o password es incorrecto.";
+                mensaje = "Error: " + ex.Message;
             }
 
             return Json(mensaje, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult GetEmpleado()
+        {
+            Datos.LoginDAT.EmpleadoDAT empleado = new Datos.LoginDAT.EmpleadoDAT();
+
+            List<Datos.Empleado> listaEmpleado = empleado.GetEmpleado("14141414");
+            
+            List<EmpleadoModelo> listaEmpleadoModelo = listaEmpleado.
+                Select(x => new EmpleadoModelo
+                {
+                    numEmpleado = x.numEmpleado,
+                    nombre = x.nombre,
+                    apellidoP = x.apellidoP,
+                    apellidoM = x.apellidoM
+                }).ToList();
+
+            return Json(listaEmpleadoModelo, JsonRequestBehavior.AllowGet);
         }
     }
 }
